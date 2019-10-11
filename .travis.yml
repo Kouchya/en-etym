@@ -5,3 +5,5 @@ git:
 
 node_js:
   - node
+
+script: node index.js
