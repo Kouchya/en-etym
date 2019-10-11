@@ -15,13 +15,6 @@ npm i en-etym
 ```javascript
 const etym = require('etym')
 
-etym.getEtym('glitter', etymList => console.log(etymList))
-/* Output:
-[ { title: 'glitter (v.)',
-    etymDict:
-    { 'Proto-Germanic': '*glit-',
-      'Old English': 'glitenian',
-      'Greek': 'khlidon' }
-  } ]
-*/
+etym.getEtym('glitter', etymList => console.log(JSON.stringify(etymList)))
+// [{"title":"glitter (v.)","etymDict":{"Old Norse":["glitra"],"Proto-Germanic":["*glit-"],"Old English":["glitenian"],"PIE":["*ghleid-","*ghel-"],"Greek":["khlidon"]}}]
 ```

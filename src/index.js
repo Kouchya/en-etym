@@ -3,7 +3,7 @@ const https = require('https')
 const iconv = require('iconv-lite')
 
 const url = 'https://www.etymonline.com/word/'
-const languages = [/(Old French)$/, /(Anglo-French)$/, /(Old North French)$/, /(Old English)$/, /(PIE root)$/, /(Proto-Germanic)$/, /(Gallo-Roman)$/, /(Modern Latin)$/, /(Medieval Latin)$/, /(Late Latin)$/, /(Latin)$/, /(Greek)$/, /(French)$/]
+const languages = [/(Old French)$/, /(Anglo-French)$/, /(Old North French)$/, /(Old English)$/, /(PIE root)$/, /(PIE)$/, /(root)$/, /(Proto-Germanic)$/, /(Gallo-Roman)$/, /(Old Norse)$/, /(Modern Latin)$/, /(Medieval Latin)$/, /(Late Latin)$/, /(Latin)$/, /(Greek)$/, /(French)$/]
 
 function getEtym (word, callback) {
   let etymList = []
@@ -27,7 +27,15 @@ function getEtym (word, callback) {
               for (const langRegExp of languages) {
                 const groups = langRegExp.exec(lastText)
                 if (groups && groups.length > 1) {
-                  etymDict[groups[1]] = $(item).text().trim()
+                  let key = groups[1]
+                  if (['PIE', 'root'].includes(key)) {
+                    key = 'PIE'
+                  }
+                  if (etymDict[key]) {
+                    etymDict[key].push($(item).text().trim())
+                  } else {
+                    etymDict[key] = [$(item).text().trim()]
+                  }
                   break
                 }
               }
