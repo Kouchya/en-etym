@@ -20,7 +20,9 @@ const etym = require('en-etym')
 
 ### etym.getEtym
 
-> (word: String) => Promise
+```typescript
+(word: String) => Promise
+```
 
 Fetch etymology information of a word in an asynchronized way. The resolved value of the Promise is the array of etymology information.
 
@@ -33,7 +35,9 @@ etym.getEtym('glitter').then(etymList => console.log(JSON.stringify(etymList)))
 
 ### etym.getEtymSync
 
-> (word: String, callback: (etymList) => any) => void
+```typescript
+(word: String, callback: (etymList: Array) => any) => void
+```
 
 Fetch etymology information of a word in a synchronized way. The argument of the callback function is the array of etymology information.
 
