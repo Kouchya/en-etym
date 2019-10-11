@@ -6,7 +6,9 @@ A tool for searching etymology of English words on https://www.etymonline.com/
 
 ## Installation
 
-> npm i en-etym
+```
+npm i en-etym
+```
 
 ## Usage
 
