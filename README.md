@@ -18,13 +18,9 @@ const etym = require('en-etym')
 
 ## API
 
-### etym.getEtym
+### etym.getEtym(word)
 
-```typescript
-(word: String) => Promise
-```
-
-Fetch etymology information of a word in an asynchronized way. The resolved value of the Promise is the array of etymology information.
+Fetch etymology information of a word in an asynchronized way. It returns a Promise which resolves the array of etymology information.
 
 ```javascript
 const etym = require('en-etym')
@@ -33,11 +29,7 @@ etym.getEtym('glitter').then(etymList => console.log(JSON.stringify(etymList)))
 // [{"title":"glitter (v.)","etymDict":{"Old Norse":["glitra"],"Proto-Germanic":["*glit-"],"Old English":["glitenian"],"PIE":["*ghleid-","*ghel-"],"Greek":["khlidon"]}}]
 ```
 
-### etym.getEtymSync
-
-```typescript
-(word: String, callback: (etymList: Array) => any) => void
-```
+### etym.getEtymSync(word, callback)
 
 Fetch etymology information of a word in a synchronized way. The argument of the callback function is the array of etymology information.
 
