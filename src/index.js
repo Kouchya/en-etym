@@ -16,7 +16,7 @@ function _parseHTML (html) {
     $(paragraphs).each((pid, paraItem) => {
       $(paraItem).children().each((i, item) => {
         if ($(item).hasClass('notranslate')) {
-          const lastText = item.prev.data.trim()
+          const lastText = item.prev && item.prev.data ? item.prev.data.trim() : null
           for (const langRegExp of languages) {
             const groups = langRegExp.exec(lastText)
             if (groups && groups.length > 1) {
